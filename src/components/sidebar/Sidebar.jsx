@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Conversations } from "./conversations"
 import { SidebarHeader } from "./header/SidebarHeader"
 import { Notifications } from "./notifications"
 import { Search } from "./search"
@@ -10,6 +11,7 @@ export const Sidebar = () => {
         <SidebarHeader />
         <Notifications />
         <Search searchLength={searchResults.length}/>
+        <Conversations />
    </div>
   )
 }
