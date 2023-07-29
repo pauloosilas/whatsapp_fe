@@ -8,7 +8,7 @@ export const Sidebar = () => {
     const [searchResults, setSearchResults] = useState([])
     console.log(searchResults)
   return (
-   <div className="w-[40%] h-full select-none">
+   <div className="flex0030 max-w-[40%] h-full select-none">
         <SidebarHeader />
         <Notifications />
         <Search 
@@ -17,7 +17,7 @@ export const Sidebar = () => {
         {
           searchResults.length > 0 ? (
           <>
-            <SearchResults searchResults={searchResults}/>
+            <SearchResults searchResults={searchResults} setSearchResults={setSearchResults}/>
           </>
           ):(
             <Conversations />

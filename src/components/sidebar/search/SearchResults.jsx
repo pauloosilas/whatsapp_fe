@@ -1,6 +1,6 @@
-import { Contact } from "./Contact"
+import Contact  from "./Contact"
 
-export const SearchResults = ({ searchResults }) => {
+export const SearchResults = ({ searchResults, setSearchResults }) => {
   return (
     <div className="w-full convos scrollbar">
         {/*Heading*/}
@@ -12,7 +12,7 @@ export const SearchResults = ({ searchResults }) => {
         <ul>
             {
                 searchResults && searchResults.map((user) => (
-                    <Contact contact={user} key={ user._id }/>
+                    <Contact contact={user} key={ user._id } setSearchResults={setSearchResults}/>
                 ))
             }
         </ul>
