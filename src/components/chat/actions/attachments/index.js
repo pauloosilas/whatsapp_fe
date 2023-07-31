@@ -1,2 +1,2 @@
 export * from "./Attachments"
-export * from "./Menu"
+export * from "./menu/Menu"

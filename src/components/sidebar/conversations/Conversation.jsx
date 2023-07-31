@@ -6,8 +6,8 @@ import { getConversationId, getConversationName, getConversationPicture } from "
 import { dateHandler } from "../../../utils/date";
 import { capitalize } from "../../../utils/string";
 
-const Conversation = ({ convo, socket }) => {
-
+const Conversation = ({ convo, socket, online, typing }) => {
+  console.log("typing", typing)
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user)
   const { activeConversation } = useSelector((state) => state.chat)
@@ -33,7 +33,8 @@ const Conversation = ({ convo, socket }) => {
         <div className="relative w-full flex items-center justify-between py-[10px]">
            {/*Left*/}
             <div className="flex items-center gap-x-3">
-                <div className="relative min-w-[50px] max-w-[50px] h-[50px] rounded-full overflow-hidden">
+                <div className={`relative min-w-[50px] max-w-[50px] h-[50px] 
+                rounded-full overflow-hidden ${online ? 'online' : ''}`}>
                     <img
                          src={getConversationPicture(user, convo.users)}
                          alt="picture" 
@@ -50,12 +51,16 @@ const Conversation = ({ convo, socket }) => {
                     <div>
                         <div className="flex items-center gap-x-1 dark:text-dark_text_2">
                             <div className="flex-1 items-center gap-x-1 dark:text-dark_text_2">
+                               {
+                                typing ? <p className="text-green_2">Digitando...</p>
+                                :
                                 <p>{ convo.latestMessage.message.length > 26
                                  ? 
-                                `${convo.latestMessage?.message.substring(0,26)}...`
+                                 `${convo.latestMessage?.message.substring(0,26)}...`
                                  : 
                                  convo.latestMessage.message
                                   }</p>
+                                }
                             </div>
                         </div>
                     </div>

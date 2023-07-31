@@ -5,7 +5,7 @@ import {ClipLoader} from "react-spinners"
 import { SendIcon } from "../../../svg"
 import { Attachments } from "./attachments/"
 import { EmojiPickerApp } from "./EmojiPicker"
-import { Input } from "./Input"
+import  Input  from "./Input"
 import SocketContext from "../../../context/SocketContext"
 
 function ChatActions ({socket}) {
